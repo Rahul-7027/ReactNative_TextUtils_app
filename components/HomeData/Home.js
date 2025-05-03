@@ -1,8 +1,9 @@
+import { useTheme } from '@react-navigation/native'
 import React, { useState } from 'react'
 import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 
 const Home = () => {
-
+    const { colors } = useTheme();
     const [text, setText] = useState("")
 
     const handleChange = (text) => {
@@ -27,10 +28,10 @@ const Home = () => {
         setText("")
     }
     return (
-        <View>
+        <View style={{ backgroundColor: colors.background }}>
             <ScrollView>
-                <Text style={styles.text}>Textutils - App</Text>
-                <TextInput style={styles.input} placeholder='Enter Your text here' numberOfLines={5}
+                <Text style={[styles.text, { color: colors.text }]}>Textutils - App</Text>
+                <TextInput style={[styles.input,{color:colors.TextInput}]} placeholder='Enter Your text here' numberOfLines={5}
                     multiline={true}
                     onChangeText={handleChange}
                     value={text}
@@ -77,10 +78,10 @@ const styles = StyleSheet.create({
         textAlign: "center",
         fontSize: 20,
         margin: 20,
-        fontFamily:"italic"
+        fontFamily: "italic"
     },
     btn: {
-        flex:1,
+        flex: 1,
         flexDirection: 'row',
         margin: 20,
         justifyContent: 'center',

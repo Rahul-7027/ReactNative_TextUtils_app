@@ -1,10 +1,12 @@
+import { useTheme } from '@react-navigation/native'
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
 const About = () => {
+  const {colors}=useTheme()
   return (
-   <View>
-    <Text style={styles.text}>About Screen</Text>
+   <View style={{backgroundColor:colors.background}}>
+    <Text style={[styles.text,{color:colors.text}]}>About Screen</Text>
    </View>
   )
 }
